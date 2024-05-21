@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Anta&display=swap');
+
+.nav{
+    display: flex;
+    align-items: center;
+    height: 10vh;
+    padding-top: 1em;
+    margin-bottom: 1em;
+    font-size: 1.5em;
+}
+
+.mainContent{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 1em;
+    height: 100%;
+    width: 100%;
+}
+
+.linkContainer{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.img{
+    width: 35px;
+    height: 35px;
+}
+
+.group {
+    position: relative;
+    padding-right: 2rem;
+   }
+   .input {
+    font-size: 16px;
+    padding: 10px 20px 10px 5px;
+    display: block;
+    width: 200px;
+    border: none;
+    border-bottom: 1px solid rgb(78, 180, 78);
+    background: transparent;
+    color: black;
+   }
+
+   
+   .input:focus {
+    outline: none;
+   }
+
+   label {
+    color: #FAF0E6;
+    font-size: 18px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+   }
+   .input:focus ~ label, .input:valid ~ label {
+    top: -20px;
+    font-size: 14px;
+    color: #FAF0E6;
+   }
+   
+
+   .highlight {
+    position: absolute;
+    height: 60%;
+    width: 100px;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+   }
+   
+   .input:focus ~ .highlight {
+    animation: inputHighlighter 0.3s ease;
+   }
+   
+   @keyframes inputHighlighter {
+    from {
+     background: #5264AE;
+    }
+   
+    to {
+     width: 0;
+     background: transparent;
+    }
+   }
+
+   .bar {
+    position: relative;
+    display: block;
+    width: 200px;
+   }
+
+.title{
+    color: #000;
+    text-decoration: none;
+    font-size: .9em;
+    padding-left: .5em;
+    font-weight: bold;
+    font-family: "Anta", sans-serif;
+}
+
+.linkDesk{
+    display: none;
+    
+}
+
+.link{
+    color: #000;
+    text-decoration: none;
+    font-size: 1.2em;
+    padding-top: 1em;
+}
+
+.searchDeskContent {
+    display: none;
+}
+
+.form1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+}
+
+.buttonContainerDesk{
+    display: none;
+}
+
+.cartButton{
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 8px;
+    border: 1px solid #7471723a;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.cartSvg{
+    cursor: pointer;
+    height: 1.5em;
+    fill: #000;
+}
+
+.buttonLog, .buttonSign{
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    margin-right: 1em;
+    cursor: pointer;
+    height: 2.5em;
+    font-size: 1.1em;
+    background-color: #000;
+    color: #fff;
+}
+
+/* css para el boton */
+.cssbuttonsIo {
+    height: 50px;
+    margin: 10px 0px 0px 0px;
+    width: 150px;
+    background: #333;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    cursor: pointer;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-family: 'Open-Sans', sans-serif;
+    font-weight: 400;
+    border: solid #404c5d 1px;
+    font-size: 20px;
+    color: #ffffff;
+    -webkit-transition: 500ms;
+    transition: 500ms;
+    border-radius: 5px;
+    background: linear-gradient(145deg, #55e777, #000000);
+    -webkit-box-shadow: -1px -5px 15px #41465b, 5px 5px 15px #41465b,
+      inset 5px 5px 10px #61f5a9, inset -5px -5px 10px #61f5a9;
+    box-shadow: -1px -5px 15px #41465b, 5px 5px 15px #41465b,
+      inset 5px 5px 10px #61f5a9, inset -5px -5px 10px #61f5a9;
+    }
+    
+    .cssbuttonsIo:hover {
+      -webkit-box-shadow: 1px 1px 13px #20232e, -1px -1px 13px #545b78;
+      box-shadow: 1px 1px 13px #20232e, -1px -1px 13px #545b78;
+      color: rgb(197, 240, 192);
+      -webkit-transition: 500ms;
+      transition: 500ms
+    }
+    
+    .cssbuttonsIo:active {
+      -webkit-box-shadow: 1px 1px 13px #20232e, -1px -1px 33px #545b78;
+      box-shadow: 1px 1px 13px #20232e, -1px -1px 33px #545b78;
+      color: #d6d6d6;
+      -webkit-transition: 100ms;
+      transition: 100ms;
+    }
+  
+    .groupButton{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+    }
+
+@media screen and (min-width: 768px){
+    .mainContent{
+        margin-left: 2em;
+        margin-right: 2em;
+    }
+
+    .mobileButtonContent{
+        display: none;
+    }
+
+    .linkContentMobile{
+        display: none;
+    }
+
+    .linkDesk{
+        display: block;
+        text-decoration: none;
+        margin-left: 1em;
+        color: #747172;
+        font-size: .9em;
+    }
+
+    .linkDesk:hover{
+        color: #000;
+        border-bottom: 1px solid #000;
+    }
+
+    .searchDeskContent{
+        display: block;
+        width: 400px;
+    }
+
+    .buttonContainerDesk{
+        display: block;
+    }
+    
+    .cartContainer{
+        display: flex;
+        align-items: center;
+    }
+
+    .buttonLog, .buttonSign{
+        font-size: .9em;
+    }
+}
+
+
+
+@media screen and (max-width: 1024px) and (min-width: 768px){
+    .title{
+        display: none;
+    }
+
+    .searchDeskContent{
+        width: 250px;
+    }
+}
