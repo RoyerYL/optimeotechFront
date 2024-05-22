@@ -1,30 +1,24 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { data } from '../../data'
 import style from './ProductList.module.css'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
-import Card from '../card/card.component'
-import { useSelector } from 'react-redux'
-import { useDispatch } from 'react-redux'
-import { getSuplementsByName, getSuplementsFilter } from '../../Redux/actions'
+export default function ProductList() {
 
-export default function ProductList({ allSuplements }) {
-    const datas = useSelector((state) => state.allSuplements);
-    const dispatch =useDispatch()
     const [category, setCategory] = useState([])
 
-    // const [datas, setDatas] = useState([])
+    const [datas, setDatas] = useState([])
     const [datasAux, setDatasAux] = useState([])
     useEffect(() => {
-        // axios.get("/suplements/").then(({ data }) => {
-        //         dispatch(getSuplementsByName())
-        //     // setDatas([...datas, ...data])
-        //     setDatasAux([...datas, ...data])
-        // })
-
+        axios.get("/suplements/").then(({ data }) => {
+            setDatas([...datas, ...data])
+            setDatasAux([...datas, ...data])
+        })
+        
         axios.get("/category/").then(({ data }) => {
             console.log(data);
-            setCategory([...data])
+            setCategory([ ...data])
         })
 
 
@@ -34,11 +28,11 @@ export default function ProductList({ allSuplements }) {
         category: "",
         orderBy: "price",
         orderDirection: "",
-        name: ""
     });
 
     const buildQueryParams = (filter) => {
         let queryParams = "?";
+
         for (const [key, value] of Object.entries(filter)) {
             if (value !== null && value !== "") {
                 if (Array.isArray(value) && value.length > 0) {
@@ -52,9 +46,8 @@ export default function ProductList({ allSuplements }) {
     };
     const fetchAlojamientos = async (queryParams) => {
         try {
-            dispatch(getSuplementsFilter(queryParams))
-            // const { data } = await axios.get("/suplements/filter/" + queryParams);
-            // setDatas(data)
+            const { data } = await axios.get("/suplements/filter/" + queryParams);
+            setDatas(data)
             //   dispatch(getAllAlojamientos(data));
         } catch (error) {
             console.log(error);
@@ -134,34 +127,25 @@ export default function ProductList({ allSuplements }) {
                 ))}
                 <button onClick={nextPage} disabled={numberPage === totalPages}>❯</button>
             </div>
-            {/* <div className={style.newData}>
-
+            <div className={style.newData}>
                 {newData.map(product => (
-                    <div className={style.item} key={product.id} onClick={() => { console.log(product); }}>
-                        <figure>
-                            <img className={style.image} src={product.image} alt={product.name} />
-                        </figure>
-                        <div className={style.info}>
-                            <div className={style.info}>
-                                <h4>{product.name}</h4>
-                                <p>${product.price}</p>
+                    <Link to={`/detail/${product.id}`}>
+                        <div className={style.item} key={product.id} onClick={() => { console.log(product); }}>
+                            <figure>
+                                <img className={style.image} src={product.image} alt={product.name} />
+                            </figure>
+                            <div className={style.info - product}>
+                                <div className={style.info}>
+                                    <h4>{product.name}</h4>
+                                </div>
+                                <button className={style.btnAddToCart} onClick={() => onAddProduct(product)}>
+                                <p className={style.price}>${product.price}</p>
+                                </button>
                             </div>
-                            <button className={style.btnAddToCart} onClick={() => { console.log(product); }}>
-                                Añadir al carrito
-                            </button>
                         </div>
-                    </div>
+                    </Link>
                 ))
                 }
-            </div> */}
-
-            <div className={style.contenedorCards}>
-                {allSuplements.map((suplement) => {
-                    //console.log(videogame);
-                    return (
-                        <Card key={suplement.id} suplement={suplement} />
-                    );
-                })}
             </div>
         </div>
     )

@@ -10,7 +10,7 @@ export default function Validation(inputs){
 
 
     //validation description
-    const regexMasDeTresPalabras = /^\s*(\S+\s+){3,}\S+\s*$/;
+    const regexMasDeTresPalabras = /^(\S+\s+){3,}\S+$/i;
     if(!regexMasDeTresPalabras.test(inputs.description))
         {errors.description = 'La descripcion debe ser mas de tres palabras';}
 
